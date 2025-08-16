@@ -51,8 +51,8 @@ Un portafolio moderno y profesional construido con React, TypeScript y las mejor
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/tuusuario/portafolio-simple.git
-   cd portafolio-simple
+   git clone https://github.com/ZLostTK/Simple-Portfolio-React.git
+   cd portafolio-simple-react
    ```
 
 2. **Instalar dependencias**
@@ -220,10 +220,9 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 
 ## 📞 Contacto
 
-- **Email**: tu@email.com
-- **LinkedIn**: [Tu Perfil](https://linkedin.com/in/tuusuario)
-- **GitHub**: [@tuusuario](https://github.com/tuusuario)
-- **Portfolio**: [tuportafolio.com](https://tuportafolio.com)
+- **Email**: anxerdev@gmail.com
+- **GitHub**: [@ZLostTK](https://github.com/ZLostTK)
+- **Portfolio**: [anxer.is-a.dev](https://anxer.is-a.dev/)
 
 ---
 
