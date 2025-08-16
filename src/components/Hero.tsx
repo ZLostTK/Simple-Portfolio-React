@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const containerVariants = {
@@ -10,7 +10,7 @@ const Hero = () => {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -22,7 +22,7 @@ const Hero = () => {
         ease: 'easeOut',
       },
     },
-  }
+  };
 
   const floatingVariants = {
     animate: {
@@ -33,10 +33,13 @@ const Hero = () => {
         ease: 'easeInOut',
       },
     },
-  }
+  };
 
   return (
-    <section id="home" className="section-padding min-h-screen flex items-center">
+    <section
+      id="home"
+      className="section-padding min-h-screen flex items-center"
+    >
       <div className="container-custom">
         <motion.div
           className="grid lg:grid-cols-2 gap-12 items-center"
@@ -70,8 +73,9 @@ const Hero = () => {
               className="text-xl text-dark-300 leading-relaxed max-w-lg"
               variants={itemVariants}
             >
-              Creo experiencias digitales excepcionales con código limpio y diseño intuitivo. 
-              Especializado en React, Node.js y tecnologías modernas.
+              Creo experiencias digitales excepcionales con código limpio y
+              diseño intuitivo. Especializado en React, Node.js y tecnologías
+              modernas.
             </motion.p>
 
             <motion.div
@@ -105,11 +109,15 @@ const Hero = () => {
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary-400">50+</div>
-                <div className="text-sm text-dark-400">Proyectos completados</div>
+                <div className="text-sm text-dark-400">
+                  Proyectos completados
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary-400">100%</div>
-                <div className="text-sm text-dark-400">Satisfacción del cliente</div>
+                <div className="text-sm text-dark-400">
+                  Satisfacción del cliente
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -126,7 +134,7 @@ const Hero = () => {
             >
               {/* Main Circle */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-primary-800/20 rounded-full border border-primary-500/30 backdrop-blur-sm"></div>
-              
+
               {/* Floating Elements */}
               <motion.div
                 className="absolute top-10 left-10 w-16 h-16 bg-primary-500/30 rounded-full border border-primary-400/50"
@@ -140,7 +148,7 @@ const Hero = () => {
                   ease: 'easeInOut',
                 }}
               />
-              
+
               <motion.div
                 className="absolute top-20 right-16 w-12 h-12 bg-primary-400/40 rounded-full border border-primary-300/50"
                 animate={{
@@ -153,7 +161,7 @@ const Hero = () => {
                   ease: 'easeInOut',
                 }}
               />
-              
+
               <motion.div
                 className="absolute bottom-16 left-20 w-20 h-20 bg-primary-600/25 rounded-full border border-primary-500/40"
                 animate={{
@@ -194,7 +202,7 @@ const Hero = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

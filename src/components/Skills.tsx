@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const Skills = () => {
   const containerVariants = {
@@ -10,7 +10,7 @@ const Skills = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -22,7 +22,7 @@ const Skills = () => {
         ease: 'easeOut',
       },
     },
-  }
+  };
 
   const skillCategories = [
     {
@@ -33,7 +33,7 @@ const Skills = () => {
         { name: 'Tailwind CSS', level: 92, icon: '🎨' },
         { name: 'Next.js', level: 88, icon: '⚡' },
         { name: 'Vue.js', level: 85, icon: '💚' },
-      ]
+      ],
     },
     {
       category: 'Backend',
@@ -43,7 +43,7 @@ const Skills = () => {
         { name: 'Python', level: 85, icon: '🐍' },
         { name: 'PostgreSQL', level: 82, icon: '🐘' },
         { name: 'MongoDB', level: 80, icon: '🍃' },
-      ]
+      ],
     },
     {
       category: 'Herramientas',
@@ -53,9 +53,9 @@ const Skills = () => {
         { name: 'AWS', level: 80, icon: '☁️' },
         { name: 'Figma', level: 75, icon: '🎯' },
         { name: 'Jest', level: 88, icon: '🧪' },
-      ]
-    }
-  ]
+      ],
+    },
+  ];
 
   const softSkills = [
     { name: 'Trabajo en Equipo', icon: '🤝' },
@@ -64,7 +64,7 @@ const Skills = () => {
     { name: 'Aprendizaje Continuo', icon: '📚' },
     { name: 'Gestión de Tiempo', icon: '⏰' },
     { name: 'Pensamiento Crítico', icon: '🧠' },
-  ]
+  ];
 
   return (
     <section id="skills" className="section-padding">
@@ -80,7 +80,8 @@ const Skills = () => {
             Mis <span className="text-gradient">Habilidades</span>
           </h2>
           <p className="text-xl text-dark-300 max-w-2xl mx-auto">
-            Tecnologías y herramientas que domino para crear soluciones digitales excepcionales.
+            Tecnologías y herramientas que domino para crear soluciones
+            digitales excepcionales.
           </p>
         </motion.div>
 
@@ -188,8 +189,9 @@ const Skills = () => {
               ¿Interesado en colaborar?
             </h3>
             <p className="text-dark-300 mb-6">
-              Siempre estoy abierto a nuevos desafíos y oportunidades de colaboración. 
-              Si tienes un proyecto en mente, ¡me encantaría escucharlo!
+              Siempre estoy abierto a nuevos desafíos y oportunidades de
+              colaboración. Si tienes un proyecto en mente, ¡me encantaría
+              escucharlo!
             </p>
             <motion.button
               className="btn-primary"
@@ -202,7 +204,7 @@ const Skills = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;

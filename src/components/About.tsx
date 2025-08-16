@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const About = () => {
   const containerVariants = {
@@ -10,7 +10,7 @@ const About = () => {
         delayChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -22,46 +22,57 @@ const About = () => {
         ease: 'easeOut',
       },
     },
-  }
+  };
 
   const experienceData = [
     {
       year: '2023 - Presente',
       title: 'Desarrollador Full Stack Senior',
       company: 'TechCorp Solutions',
-      description: 'Lidero el desarrollo de aplicaciones web escalables usando React, Node.js y AWS.',
-      technologies: ['React', 'Node.js', 'AWS', 'TypeScript', 'MongoDB']
+      description:
+        'Lidero el desarrollo de aplicaciones web escalables usando React, Node.js y AWS.',
+      technologies: ['React', 'Node.js', 'AWS', 'TypeScript', 'MongoDB'],
     },
     {
       year: '2021 - 2023',
       title: 'Desarrollador Frontend',
       company: 'Digital Innovations',
-      description: 'Desarrollé interfaces de usuario responsivas y accesibles para aplicaciones web.',
-      technologies: ['React', 'Vue.js', 'Tailwind CSS', 'JavaScript', 'REST APIs']
+      description:
+        'Desarrollé interfaces de usuario responsivas y accesibles para aplicaciones web.',
+      technologies: [
+        'React',
+        'Vue.js',
+        'Tailwind CSS',
+        'JavaScript',
+        'REST APIs',
+      ],
     },
     {
       year: '2020 - 2021',
       title: 'Desarrollador Junior',
       company: 'StartUp Studio',
-      description: 'Colaboré en el desarrollo de MVP y prototipos para startups tecnológicas.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Firebase']
-    }
-  ]
+      description:
+        'Colaboré en el desarrollo de MVP y prototipos para startups tecnológicas.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Firebase'],
+    },
+  ];
 
   const educationData = [
     {
       degree: 'Ingeniería en Sistemas Computacionales',
       school: 'Universidad Tecnológica',
       year: '2016 - 2020',
-      description: 'Especialización en desarrollo de software y arquitectura de sistemas.'
+      description:
+        'Especialización en desarrollo de software y arquitectura de sistemas.',
     },
     {
       degree: 'Certificación AWS Developer',
       school: 'Amazon Web Services',
       year: '2022',
-      description: 'Certificación oficial en desarrollo de aplicaciones en la nube.'
-    }
-  ]
+      description:
+        'Certificación oficial en desarrollo de aplicaciones en la nube.',
+    },
+  ];
 
   return (
     <section id="about" className="section-padding bg-dark-800/30">
@@ -77,8 +88,8 @@ const About = () => {
             Sobre <span className="text-gradient">Mí</span>
           </h2>
           <p className="text-xl text-dark-300 max-w-2xl mx-auto">
-            Apasionado desarrollador full stack con experiencia en crear soluciones digitales 
-            innovadoras que resuelven problemas reales.
+            Apasionado desarrollador full stack con experiencia en crear
+            soluciones digitales innovadoras que resuelven problemas reales.
           </p>
         </motion.div>
 
@@ -95,18 +106,19 @@ const About = () => {
               Mi Historia
             </h3>
             <p className="text-dark-300 leading-relaxed">
-              Comencé mi viaje en el desarrollo web hace más de 3 años, fascinado por la 
-              capacidad de crear experiencias digitales que impacten positivamente en la vida 
-              de las personas.
+              Comencé mi viaje en el desarrollo web hace más de 3 años,
+              fascinado por la capacidad de crear experiencias digitales que
+              impacten positivamente en la vida de las personas.
             </p>
             <p className="text-dark-300 leading-relaxed">
-              Me especializo en el desarrollo full stack, combinando tecnologías frontend 
-              modernas con arquitecturas backend robustas. Mi enfoque se centra en escribir 
-              código limpio, mantenible y escalable.
+              Me especializo en el desarrollo full stack, combinando tecnologías
+              frontend modernas con arquitecturas backend robustas. Mi enfoque
+              se centra en escribir código limpio, mantenible y escalable.
             </p>
             <p className="text-dark-300 leading-relaxed">
-              Cuando no estoy programando, me gusta contribuir a proyectos de código abierto, 
-              aprender nuevas tecnologías y compartir conocimiento con la comunidad de desarrolladores.
+              Cuando no estoy programando, me gusta contribuir a proyectos de
+              código abierto, aprender nuevas tecnologías y compartir
+              conocimiento con la comunidad de desarrolladores.
             </p>
 
             {/* Personal Details */}
@@ -150,7 +162,9 @@ const About = () => {
                         <h4 className="text-lg font-semibold text-dark-100 group-hover:text-primary-400 transition-colors">
                           {exp.title}
                         </h4>
-                        <p className="text-primary-400 font-medium">{exp.company}</p>
+                        <p className="text-primary-400 font-medium">
+                          {exp.company}
+                        </p>
                       </div>
                       <span className="text-sm text-dark-400 bg-dark-700 px-3 py-1 rounded-full">
                         {exp.year}
@@ -209,7 +223,7 @@ const About = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const LoadingScreen = () => {
   const containerVariants = {
@@ -10,7 +10,7 @@ const LoadingScreen = () => {
         delayChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -22,7 +22,7 @@ const LoadingScreen = () => {
         ease: 'easeOut',
       },
     },
-  }
+  };
 
   const pulseVariants = {
     animate: {
@@ -34,7 +34,7 @@ const LoadingScreen = () => {
         ease: 'easeInOut',
       },
     },
-  }
+  };
 
   const rotateVariants = {
     animate: {
@@ -45,7 +45,7 @@ const LoadingScreen = () => {
         ease: 'linear',
       },
     },
-  }
+  };
 
   return (
     <motion.div
@@ -56,10 +56,7 @@ const LoadingScreen = () => {
     >
       <div className="text-center">
         {/* Logo */}
-        <motion.div
-          className="mb-8"
-          variants={itemVariants}
-        >
+        <motion.div className="mb-8" variants={itemVariants}>
           <div className="relative">
             <motion.div
               className="w-24 h-24 bg-gradient-to-br from-primary-500 to-primary-700 rounded-full flex items-center justify-center shadow-2xl"
@@ -68,7 +65,7 @@ const LoadingScreen = () => {
             >
               <span className="text-4xl text-white font-bold">Σ</span>
             </motion.div>
-            
+
             {/* Orbiting Elements */}
             <motion.div
               className="absolute inset-0"
@@ -120,7 +117,7 @@ const LoadingScreen = () => {
           className="flex justify-center space-x-2 mt-8"
           variants={itemVariants}
         >
-          {[0, 1, 2].map((index) => (
+          {[0, 1, 2].map(index => (
             <motion.div
               key={index}
               className="w-3 h-3 bg-primary-400 rounded-full"
@@ -177,7 +174,7 @@ const LoadingScreen = () => {
         ))}
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default LoadingScreen
+export default LoadingScreen;

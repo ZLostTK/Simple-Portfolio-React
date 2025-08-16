@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { name: 'Inicio', href: '#home' },
@@ -20,15 +20,15 @@ const Header = () => {
     { name: 'Habilidades', href: '#skills' },
     { name: 'Proyectos', href: '#projects' },
     { name: 'Contacto', href: '#contact' },
-  ]
+  ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsMobileMenuOpen(false)
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
     }
-  }
+  };
 
   return (
     <motion.header
@@ -129,7 +129,7 @@ const Header = () => {
         </AnimatePresence>
       </div>
     </motion.header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

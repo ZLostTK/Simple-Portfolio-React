@@ -1,73 +1,75 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
+    e.preventDefault();
+    setIsSubmitting(true);
+
     // Simular envío del formulario
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     // Aquí iría la lógica real de envío
-    console.log('Form submitted:', formData)
-    
-    setIsSubmitting(false)
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    
+    console.log('Form submitted:', formData);
+
+    setIsSubmitting(false);
+    setFormData({ name: '', email: '', subject: '', message: '' });
+
     // Mostrar mensaje de éxito (podrías usar un toast)
-    alert('¡Mensaje enviado con éxito! Te responderé pronto.')
-  }
+    alert('¡Mensaje enviado con éxito! Te responderé pronto.');
+  };
 
   const contactInfo = [
     {
       icon: '📧',
       title: 'Email',
       value: 'tu@email.com',
-      link: 'mailto:tu@email.com'
+      link: 'mailto:tu@email.com',
     },
     {
       icon: '📱',
       title: 'Teléfono',
       value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      link: 'tel:+15551234567',
     },
     {
       icon: '📍',
       title: 'Ubicación',
       value: 'Tu Ciudad, País',
-      link: '#'
+      link: '#',
     },
     {
       icon: '💼',
       title: 'LinkedIn',
       value: 'linkedin.com/in/tu-perfil',
-      link: 'https://linkedin.com/in/tu-perfil'
-    }
-  ]
+      link: 'https://linkedin.com/in/tu-perfil',
+    },
+  ];
 
   const socialLinks = [
     { name: 'GitHub', icon: '🐙', url: 'https://github.com/tu-usuario' },
     { name: 'Twitter', icon: '🐦', url: 'https://twitter.com/tu-usuario' },
     { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/tu-perfil' },
-    { name: 'Instagram', icon: '📸', url: 'https://instagram.com/tu-usuario' }
-  ]
+    { name: 'Instagram', icon: '📸', url: 'https://instagram.com/tu-usuario' },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -78,7 +80,7 @@ const Contact = () => {
         delayChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -90,7 +92,7 @@ const Contact = () => {
         ease: 'easeOut',
       },
     },
-  }
+  };
 
   return (
     <section id="contact" className="section-padding">
@@ -106,8 +108,8 @@ const Contact = () => {
             ¡Hablemos de tu <span className="text-gradient">Proyecto</span>!
           </h2>
           <p className="text-xl text-dark-300 max-w-2xl mx-auto">
-            ¿Tienes una idea en mente? ¿Necesitas ayuda con un proyecto? 
-            ¡Me encantaría escuchar de ti y colaborar juntos!
+            ¿Tienes una idea en mente? ¿Necesitas ayuda con un proyecto? ¡Me
+            encantaría escuchar de ti y colaborar juntos!
           </p>
         </motion.div>
 
@@ -123,11 +125,14 @@ const Contact = () => {
             <h3 className="text-2xl font-semibold text-dark-100 mb-6">
               Envíame un Mensaje
             </h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-dark-300 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-dark-300 mb-2"
+                  >
                     Nombre *
                   </label>
                   <input
@@ -141,9 +146,12 @@ const Contact = () => {
                     placeholder="Tu nombre completo"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-dark-300 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-dark-300 mb-2"
+                  >
                     Email *
                   </label>
                   <input
@@ -158,9 +166,12 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-dark-300 mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-dark-300 mb-2"
+                >
                   Asunto *
                 </label>
                 <input
@@ -174,9 +185,12 @@ const Contact = () => {
                   placeholder="¿En qué puedo ayudarte?"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-dark-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-dark-300 mb-2"
+                >
                   Mensaje *
                 </label>
                 <textarea
@@ -190,7 +204,7 @@ const Contact = () => {
                   placeholder="Cuéntame más sobre tu proyecto..."
                 />
               </div>
-              
+
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
@@ -216,7 +230,7 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-dark-100 mb-6">
                 Información de Contacto
               </h3>
-              
+
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -244,7 +258,7 @@ const Contact = () => {
               <h3 className="text-xl font-semibold text-dark-100 mb-4">
                 Sígueme en Redes Sociales
               </h3>
-              
+
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -271,18 +285,21 @@ const Contact = () => {
             <div className="card bg-gradient-to-r from-primary-600/20 to-primary-800/20 border-primary-500/30">
               <div className="flex items-center space-x-3 mb-3">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-primary-400 font-medium">Disponible para proyectos</span>
+                <span className="text-primary-400 font-medium">
+                  Disponible para proyectos
+                </span>
               </div>
               <p className="text-dark-300 text-sm">
-                Actualmente estoy disponible para nuevos proyectos y colaboraciones. 
-                ¡Hablemos sobre cómo puedo ayudarte a hacer realidad tu idea!
+                Actualmente estoy disponible para nuevos proyectos y
+                colaboraciones. ¡Hablemos sobre cómo puedo ayudarte a hacer
+                realidad tu idea!
               </p>
             </div>
           </motion.div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

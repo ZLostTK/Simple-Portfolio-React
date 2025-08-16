@@ -1,22 +1,23 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('todos')
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [activeFilter, setActiveFilter] = useState('todos');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filters = [
     { id: 'todos', name: 'Todos' },
     { id: 'web', name: 'Web Apps' },
     { id: 'mobile', name: 'Mobile Apps' },
     { id: 'ui', name: 'UI/UX Design' },
-  ]
+  ];
 
   const projects: Project[] = [
     {
       id: 1,
       title: 'E-Commerce Platform',
-      description: 'Plataforma completa de comercio electrónico con panel de administración, sistema de pagos y gestión de inventario.',
+      description:
+        'Plataforma completa de comercio electrónico con panel de administración, sistema de pagos y gestión de inventario.',
       image: '/api/placeholder/400/300',
       category: 'web',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
@@ -27,7 +28,8 @@ const Projects = () => {
     {
       id: 2,
       title: 'Task Management App',
-      description: 'Aplicación de gestión de tareas con funcionalidades de colaboración en tiempo real y notificaciones push.',
+      description:
+        'Aplicación de gestión de tareas con funcionalidades de colaboración en tiempo real y notificaciones push.',
       image: '/api/placeholder/400/300',
       category: 'web',
       technologies: ['Vue.js', 'Firebase', 'PWA', 'Vuetify'],
@@ -38,7 +40,8 @@ const Projects = () => {
     {
       id: 3,
       title: 'Fitness Tracker Mobile',
-      description: 'App móvil para seguimiento de ejercicios con integración de wearables y análisis de datos de salud.',
+      description:
+        'App móvil para seguimiento de ejercicios con integración de wearables y análisis de datos de salud.',
       image: '/api/placeholder/400/300',
       category: 'mobile',
       technologies: ['React Native', 'Node.js', 'PostgreSQL', 'Chart.js'],
@@ -49,7 +52,8 @@ const Projects = () => {
     {
       id: 4,
       title: 'Portfolio Website',
-      description: 'Sitio web de portafolio personal con diseño moderno, animaciones fluidas y optimización SEO.',
+      description:
+        'Sitio web de portafolio personal con diseño moderno, animaciones fluidas y optimización SEO.',
       image: '/api/placeholder/400/300',
       category: 'web',
       technologies: ['React', 'Framer Motion', 'Tailwind CSS', 'Vite'],
@@ -60,7 +64,8 @@ const Projects = () => {
     {
       id: 5,
       title: 'Dashboard Analytics',
-      description: 'Panel de control empresarial con visualizaciones de datos en tiempo real y reportes personalizables.',
+      description:
+        'Panel de control empresarial con visualizaciones de datos en tiempo real y reportes personalizables.',
       image: '/api/placeholder/400/300',
       category: 'web',
       technologies: ['Next.js', 'TypeScript', 'D3.js', 'Supabase'],
@@ -71,7 +76,8 @@ const Projects = () => {
     {
       id: 6,
       title: 'UI Component Library',
-      description: 'Biblioteca de componentes reutilizables con documentación interactiva y sistema de diseño consistente.',
+      description:
+        'Biblioteca de componentes reutilizables con documentación interactiva y sistema de diseño consistente.',
       image: '/api/placeholder/400/300',
       category: 'ui',
       technologies: ['Storybook', 'React', 'Styled Components', 'Figma'],
@@ -79,11 +85,12 @@ const Projects = () => {
       githubUrl: '#',
       featured: false,
     },
-  ]
+  ];
 
-  const filteredProjects = activeFilter === 'todos' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter)
+  const filteredProjects =
+    activeFilter === 'todos'
+      ? projects
+      : projects.filter(project => project.category === activeFilter);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -94,7 +101,7 @@ const Projects = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -106,7 +113,7 @@ const Projects = () => {
         ease: 'easeOut',
       },
     },
-  }
+  };
 
   return (
     <section id="projects" className="section-padding bg-dark-800/30">
@@ -122,7 +129,8 @@ const Projects = () => {
             Mis <span className="text-gradient">Proyectos</span>
           </h2>
           <p className="text-xl text-dark-300 max-w-2xl mx-auto">
-            Una selección de proyectos que demuestran mis habilidades y pasión por el desarrollo.
+            Una selección de proyectos que demuestran mis habilidades y pasión
+            por el desarrollo.
           </p>
         </motion.div>
 
@@ -134,7 +142,7 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {filters.map((filter) => (
+          {filters.map(filter => (
             <motion.button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
@@ -160,7 +168,7 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           <AnimatePresence mode="wait">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map(project => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
@@ -199,7 +207,7 @@ const Projects = () => {
                   <p className="text-dark-300 text-sm leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
-                  
+
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.slice(0, 3).map((tech, index) => (
@@ -273,7 +281,7 @@ const Projects = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-2xl font-bold text-dark-100">
@@ -286,16 +294,16 @@ const Projects = () => {
                   ×
                 </button>
               </div>
-              
+
               <div className="space-y-6">
                 <div className="w-full h-64 bg-gradient-to-br from-primary-600/20 to-primary-800/20 rounded-lg flex items-center justify-center">
                   <span className="text-8xl text-primary-400">🚀</span>
                 </div>
-                
+
                 <p className="text-dark-300 leading-relaxed">
                   {selectedProject.description}
                 </p>
-                
+
                 <div>
                   <h4 className="text-lg font-semibold text-dark-100 mb-3">
                     Tecnologías Utilizadas
@@ -311,7 +319,7 @@ const Projects = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="flex gap-4">
                   <motion.a
                     href={selectedProject.liveUrl}
@@ -336,19 +344,19 @@ const Projects = () => {
         )}
       </AnimatePresence>
     </section>
-  )
-}
+  );
+};
 
 interface Project {
-  id: number
-  title: string
-  description: string
-  image: string
-  category: string
-  technologies: string[]
-  liveUrl: string
-  githubUrl: string
-  featured: boolean
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  technologies: string[];
+  liveUrl: string;
+  githubUrl: string;
+  featured: boolean;
 }
 
-export default Projects
+export default Projects;

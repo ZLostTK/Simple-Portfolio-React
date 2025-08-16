@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,9 +12,9 @@ import {
   PointElement,
   LineElement,
   Filler,
-} from 'chart.js'
-import { Bar, Doughnut, Radar } from 'react-chartjs-2'
-import { motion } from 'framer-motion'
+} from 'chart.js';
+import { Bar, Doughnut, Radar } from 'react-chartjs-2';
+import { motion } from 'framer-motion';
 
 // Registrar componentes de Chart.js
 ChartJS.register(
@@ -29,20 +29,20 @@ ChartJS.register(
   PointElement,
   LineElement,
   Filler
-)
+);
 
 interface Skill {
-  name: string
-  level: number
-  category: string
-  color: string
+  name: string;
+  level: number;
+  category: string;
+  color: string;
 }
 
 interface SkillsChartProps {
-  skills: Skill[]
-  type?: 'bar' | 'doughnut' | 'radar'
-  title?: string
-  description?: string
+  skills: Skill[];
+  type?: 'bar' | 'doughnut' | 'radar';
+  title?: string;
+  description?: string;
 }
 
 const SkillsChart: React.FC<SkillsChartProps> = ({
@@ -64,7 +64,7 @@ const SkillsChart: React.FC<SkillsChartProps> = ({
         borderSkipped: false,
       },
     ],
-  }
+  };
 
   const chartOptions = {
     responsive: true,
@@ -82,36 +82,39 @@ const SkillsChart: React.FC<SkillsChartProps> = ({
         cornerRadius: 8,
         displayColors: false,
         callbacks: {
-          label: function(context: any) {
-            return `Nivel: ${context.parsed.y}%`
-          }
-        }
+          label: function (context: { parsed: { y: number } }) {
+            return `Nivel: ${context.parsed.y}%`;
+          },
+        },
       },
     },
-    scales: type === 'bar' ? {
-      y: {
-        beginAtZero: true,
-        max: 100,
-        grid: {
-          color: 'rgba(71, 85, 105, 0.2)',
-        },
-        ticks: {
-          color: '#94a3b8',
-          callback: function(value: any) {
-            return value + '%'
+    scales:
+      type === 'bar'
+        ? {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              grid: {
+                color: 'rgba(71, 85, 105, 0.2)',
+              },
+              ticks: {
+                color: '#94a3b8',
+                callback: function (value: number) {
+                  return value + '%';
+                },
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+              ticks: {
+                color: '#94a3b8',
+              },
+            },
           }
-        }
-      },
-      x: {
-        grid: {
-          display: false,
-        },
-        ticks: {
-          color: '#94a3b8',
-        }
-      }
-    } : undefined,
-  }
+        : undefined,
+  };
 
   const renderChart = () => {
     switch (type) {
@@ -130,12 +133,12 @@ const SkillsChart: React.FC<SkillsChartProps> = ({
                     color: '#94a3b8',
                     padding: 20,
                     usePointStyle: true,
-                  }
-                }
-              }
+                  },
+                },
+              },
             }}
           />
-        )
+        );
       case 'radar':
         return (
           <Radar
@@ -156,23 +159,23 @@ const SkillsChart: React.FC<SkillsChartProps> = ({
                     color: '#94a3b8',
                     font: {
                       size: 12,
-                    }
+                    },
                   },
                   ticks: {
                     color: '#94a3b8',
-                    callback: function(value: any) {
-                      return value + '%'
-                    }
-                  }
-                }
-              }
+                    callback: function (value: number) {
+                      return value + '%';
+                    },
+                  },
+                },
+              },
             }}
           />
-        )
+        );
       default:
-        return <Bar data={chartData} options={chartOptions} />
+        return <Bar data={chartData} options={chartOptions} />;
     }
-  }
+  };
 
   return (
     <motion.div
@@ -186,22 +189,16 @@ const SkillsChart: React.FC<SkillsChartProps> = ({
       {(title || description) && (
         <div className="text-center mb-6">
           {title && (
-            <h3 className="text-2xl font-bold text-dark-100 mb-2">
-              {title}
-            </h3>
+            <h3 className="text-2xl font-bold text-dark-100 mb-2">{title}</h3>
           )}
           {description && (
-            <p className="text-dark-300 max-w-2xl mx-auto">
-              {description}
-            </p>
+            <p className="text-dark-300 max-w-2xl mx-auto">{description}</p>
           )}
         </div>
       )}
 
       {/* Chart Container */}
-      <div className="relative h-80 w-full">
-        {renderChart()}
-      </div>
+      <div className="relative h-80 w-full">{renderChart()}</div>
 
       {/* Skills Legend */}
       <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -219,16 +216,14 @@ const SkillsChart: React.FC<SkillsChartProps> = ({
               style={{ backgroundColor: skill.color }}
             />
             <span className="text-dark-300">{skill.name}</span>
-            <span className="text-primary-400 font-medium">
-              {skill.level}%
-            </span>
+            <span className="text-primary-400 font-medium">{skill.level}%</span>
           </motion.div>
         ))}
       </div>
 
       {/* Chart Type Selector */}
       <div className="mt-6 flex justify-center space-x-2">
-        {['bar', 'doughnut', 'radar'].map((chartType) => (
+        {['bar', 'doughnut', 'radar'].map(chartType => (
           <button
             key={chartType}
             className={`px-3 py-2 text-xs font-medium rounded-lg transition-all duration-300 ${
@@ -238,7 +233,7 @@ const SkillsChart: React.FC<SkillsChartProps> = ({
             }`}
             onClick={() => {
               // Aquí podrías implementar un callback para cambiar el tipo de gráfica
-              console.log(`Cambiar a gráfica ${chartType}`)
+              console.log(`Cambiar a gráfica ${chartType}`);
             }}
           >
             {chartType === 'bar' && 'Barras'}
@@ -248,7 +243,7 @@ const SkillsChart: React.FC<SkillsChartProps> = ({
         ))}
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default SkillsChart
+export default SkillsChart;

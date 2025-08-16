@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     quickLinks: [
@@ -20,15 +20,23 @@ const Footer = () => {
     ],
     social: [
       { name: 'GitHub', icon: '🐙', href: 'https://github.com/tu-usuario' },
-      { name: 'LinkedIn', icon: '💼', href: 'https://linkedin.com/in/tu-perfil' },
+      {
+        name: 'LinkedIn',
+        icon: '💼',
+        href: 'https://linkedin.com/in/tu-perfil',
+      },
       { name: 'Twitter', icon: '🐦', href: 'https://twitter.com/tu-usuario' },
-      { name: 'Instagram', icon: '📸', href: 'https://instagram.com/tu-usuario' },
-    ]
-  }
+      {
+        name: 'Instagram',
+        icon: '📸',
+        href: 'https://instagram.com/tu-usuario',
+      },
+    ],
+  };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -39,7 +47,7 @@ const Footer = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -51,7 +59,7 @@ const Footer = () => {
         ease: 'easeOut',
       },
     },
-  }
+  };
 
   return (
     <footer className="bg-dark-900 border-t border-dark-800">
@@ -69,11 +77,13 @@ const Footer = () => {
             <motion.div variants={itemVariants} className="lg:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-2xl text-primary-400">Σ</span>
-                <span className="text-xl font-bold text-gradient">Portfolio</span>
+                <span className="text-xl font-bold text-gradient">
+                  Portfolio
+                </span>
               </div>
               <p className="text-dark-300 text-sm leading-relaxed mb-6">
-                Desarrollador full stack apasionado por crear experiencias digitales 
-                excepcionales que resuelven problemas reales.
+                Desarrollador full stack apasionado por crear experiencias
+                digitales excepcionales que resuelven problemas reales.
               </p>
               <div className="flex space-x-4">
                 {footerLinks.social.map((social, index) => (
@@ -169,11 +179,12 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
               <p className="text-dark-400 text-sm">
-                © {currentYear} <span className="text-primary-400">Tu Nombre</span>. 
-                Todos los derechos reservados.
+                © {currentYear}{' '}
+                <span className="text-primary-400">Tu Nombre</span>. Todos los
+                derechos reservados.
               </p>
             </div>
-            
+
             <div className="flex items-center space-x-6">
               <motion.a
                 href="#"
@@ -219,7 +230,7 @@ const Footer = () => {
         </svg>
       </motion.button>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
