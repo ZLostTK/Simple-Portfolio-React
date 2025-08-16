@@ -1,212 +1,210 @@
-# 🚀 Portfolio Moderno - React + Framer Motion + Tailwind CSS
+# 🚀 Portafolio Simple - Desarrollador Full Stack
 
-Un sitio web de portafolio personal moderno y responsivo construido con las mejores tecnologías web.
+Un portafolio moderno y profesional construido con React, TypeScript y las mejores tecnologías web.
 
 ## ✨ Características
 
-- 🎨 **Diseño Moderno**: Interfaz elegante con tema oscuro y acentos azules
-- 📱 **Completamente Responsivo**: Optimizado para todos los dispositivos
-- 🎭 **Animaciones Fluidas**: Transiciones suaves con Framer Motion
-- ⚡ **Rendimiento Optimizado**: Construido con Vite para máxima velocidad
-- 🎯 **SEO Friendly**: Estructura semántica y metadatos optimizados
-- ♿ **Accesible**: Cumple con estándares de accesibilidad web
+- 🎨 **Diseño Moderno**: Interfaz elegante con tema oscuro y animaciones fluidas
+- 📱 **Responsive**: Optimizado para todos los dispositivos
+- ⚡ **Performance**: Carga rápida y optimización SEO
+- 🔧 **TypeScript**: Código tipado y mantenible
+- 🎭 **Animaciones**: Transiciones suaves con Framer Motion
+- 📊 **Gráficas Interactivas**: Visualización de habilidades con Chart.js
+- 📋 **Tablas Avanzadas**: Componentes de datos con TanStack Table
+- ✅ **Validación**: Formularios robustos con Zod
+- 🎯 **SEO Optimizado**: Meta tags y structured data
+- 🧪 **Testing**: Cobertura completa con Vitest
+- 🚀 **CI/CD**: Pipeline automatizado con GitHub Actions
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Frontend**: React 18 + TypeScript
-- **Animaciones**: Framer Motion
-- **Estilos**: Tailwind CSS
-- **Build Tool**: Vite
-- **Linting**: ESLint + Prettier
-- **Gestión de Paquetes**: pnpm
+### Frontend
+- **React 18** - Biblioteca de UI
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Framework de CSS
+- **Framer Motion** - Animaciones
+- **Vite** - Build tool rápido
 
-## 🚀 Instalación y Uso
+### Bibliotecas Imprescindibles
+- **Zod** - Validación de esquemas
+- **Day.js** - Manejo de fechas
+- **TanStack Table** - Tablas de datos
+- **Chart.js** - Gráficas interactivas
+- **Zustand** - Estado global
+- **React Hook Form** - Formularios
+- **React Helmet Async** - SEO
+
+### Herramientas de Desarrollo
+- **ESLint** - Linting de código
+- **Prettier** - Formateo automático
+- **Vitest** - Testing framework
+- **Husky** - Git hooks
+- **Commitlint** - Validación de commits
+
+## 🚀 Instalación
 
 ### Prerrequisitos
-
-- Node.js 18+ 
+- Node.js 20.x o superior
 - pnpm (recomendado) o npm
 
-### Instalación
+### Pasos de Instalación
 
 1. **Clonar el repositorio**
    ```bash
-   git clone <tu-repositorio>
+   git clone https://github.com/tuusuario/portafolio-simple.git
    cd portafolio-simple
    ```
 
 2. **Instalar dependencias**
    ```bash
    pnpm install
-   # o
-   npm install
    ```
 
-3. **Ejecutar en desarrollo**
+3. **Configurar variables de entorno**
+   ```bash
+   cp .env.example .env.local
+   # Editar .env.local con tus configuraciones
+   ```
+
+4. **Ejecutar en desarrollo**
    ```bash
    pnpm dev
-   # o
-   npm run dev
    ```
 
-4. **Construir para producción**
+5. **Construir para producción**
    ```bash
    pnpm build
-   # o
-   npm run build
    ```
 
 ## 📁 Estructura del Proyecto
 
 ```
-src/
-├── components/          # Componentes reutilizables
-│   ├── Header.tsx      # Navegación principal
-│   ├── Hero.tsx        # Sección de bienvenida
-│   ├── About.tsx       # Información personal
-│   ├── Skills.tsx      # Habilidades técnicas
-│   ├── Projects.tsx    # Galería de proyectos
-│   ├── Contact.tsx     # Formulario de contacto
-│   ├── Footer.tsx      # Pie de página
-│   └── LoadingScreen.tsx # Pantalla de carga
-├── App.tsx             # Componente principal
-├── main.tsx            # Punto de entrada
-└── index.css           # Estilos globales y Tailwind
+📦 portafolio-simple
+ ┣ 📂 src/
+ ┃ ┣ 📂 components/          # Componentes React
+ ┃ ┃ ┣ 📂 hooks/            # Hooks personalizados
+ ┃ ┃ ┣ 📂 store/            # Estado global (Zustand)
+ ┃ ┃ ┣ 📂 test/             # Configuración de testing
+ ┃ ┃ ┗ 📂 utils/            # Utilidades y helpers
+ ┣ 📂 .github/
+ ┃ ┗ 📂 workflows/          # GitHub Actions
+ ┣ 📂 public/               # Archivos estáticos
+ ┣ 📄 package.json          # Dependencias y scripts
+ ┣ 📄 vite.config.ts        # Configuración de Vite
+ ┣ 📄 tailwind.config.js    # Configuración de Tailwind
+ ┣ 📄 vitest.config.ts      # Configuración de Vitest
+ ┗ 📄 README.md             # Documentación
 ```
 
-## 🎨 Personalización
+## 🧪 Testing
 
-### Colores
-Los colores se pueden personalizar en `tailwind.config.js`:
+### Ejecutar Tests
+```bash
+# Tests en modo watch
+pnpm test
 
-```javascript
-colors: {
-  primary: {
-    50: '#f0f9ff',
-    100: '#e0f2fe',
-    // ... más variantes
-  },
-  dark: {
-    50: '#f8fafc',
-    // ... más variantes
-  }
-}
+# Tests con cobertura
+pnpm test:coverage
+
+# Tests con UI
+pnpm test:ui
 ```
 
-### Contenido
-Edita los componentes para personalizar:
-- Información personal en `About.tsx`
-- Proyectos en `Projects.tsx`
-- Habilidades en `Skills.tsx`
-- Enlaces de contacto en `Contact.tsx`
-
-### Imágenes
-Reemplaza los placeholders con tus propias imágenes:
-- Foto de perfil
-- Capturas de proyectos
-- Logos y iconos
-
-## 📱 Secciones del Portafolio
-
-### 🏠 **Hero Section**
-- Presentación personal impactante
-- Llamadas a la acción
-- Estadísticas destacadas
-- Elementos visuales animados
-
-### 👤 **Sobre Mí**
-- Historia personal
-- Experiencia laboral
-- Educación y certificaciones
-- Información de contacto
-
-### 🎯 **Habilidades**
-- Categorías técnicas (Frontend, Backend, Herramientas)
-- Barras de progreso animadas
-- Habilidades blandas
-- Niveles de competencia
-
-### 🚀 **Proyectos**
-- Galería filtrable por categorías
-- Modal de detalles del proyecto
-- Enlaces a demos y código
-- Tecnologías utilizadas
-
-### 📞 **Contacto**
-- Formulario funcional
-- Información de contacto
-- Enlaces a redes sociales
-- Estado de disponibilidad
-
-## 🎭 Animaciones
-
-El portafolio incluye animaciones suaves y atractivas:
-
-- **Entrada de elementos**: Aparecen con efectos de fade y slide
-- **Hover effects**: Interacciones responsivas en botones y tarjetas
-- **Scroll animations**: Elementos que se animan al hacer scroll
-- **Transiciones de página**: Navegación fluida entre secciones
-- **Loading screen**: Pantalla de carga con elementos orbitales
+### Cobertura de Código
+El proyecto apunta a una cobertura mínima del **85%** para mantener la calidad del código.
 
 ## 🔧 Scripts Disponibles
 
-```json
-{
-  "dev": "vite",                    # Servidor de desarrollo
-  "build": "tsc && vite build",     # Construcción para producción
-  "preview": "vite preview",        # Vista previa de la build
-  "lint": "eslint .",               # Verificación de código
-  "format": "prettier --write",     # Formateo automático
-  "type-check": "tsc --noEmit"      # Verificación de tipos
-}
-```
+| Script | Descripción |
+|--------|-------------|
+| `pnpm dev` | Servidor de desarrollo |
+| `pnpm build` | Construcción para producción |
+| `pnpm preview` | Vista previa de la build |
+| `pnpm lint` | Ejecutar ESLint |
+| `pnpm lint:fix` | Corregir errores de ESLint |
+| `pnpm format` | Formatear código con Prettier |
+| `pnpm type-check` | Verificación de tipos TypeScript |
+| `pnpm test` | Ejecutar tests |
+| `pnpm test:coverage` | Tests con reporte de cobertura |
 
-## 📊 Optimizaciones
-
-- **Code Splitting**: Carga diferida de componentes
-- **Lazy Loading**: Imágenes y recursos optimizados
-- **Bundle Analysis**: Análisis de tamaño del bundle
-- **Performance Monitoring**: Métricas de rendimiento
-
-## 🌐 Despliegue
+## 🚀 Deployment
 
 ### Vercel (Recomendado)
-```bash
-npm install -g vercel
-vercel --prod
-```
+1. Conectar tu repositorio a Vercel
+2. Configurar variables de entorno
+3. Deploy automático en cada push a main
 
 ### Netlify
-```bash
-npm install -g netlify-cli
-netlify deploy --prod
-```
+1. Conectar tu repositorio a Netlify
+2. Configurar build command: `pnpm build`
+3. Configurar publish directory: `dist`
 
-### GitHub Pages
-```bash
-npm run build
-# Subir carpeta dist a gh-pages
-```
+## 📊 CI/CD Pipeline
 
-## 📈 Próximas Mejoras
+El proyecto incluye un pipeline completo de CI/CD que:
 
-- [ ] **Blog integrado** con MDX
-- [ ] **Sistema de temas** (claro/oscuro)
-- [ ] **Internacionalización** (i18n)
-- [ ] **CMS headless** para gestión de contenido
-- [ ] **Analytics** y métricas de usuario
-- [ ] **PWA** con funcionalidades offline
-- [ ] **Testing** con Vitest y Playwright
+- ✅ **Linting**: Verifica calidad del código
+- ✅ **Testing**: Ejecuta tests automáticamente
+- ✅ **Type Checking**: Valida tipos TypeScript
+- ✅ **Build**: Construye la aplicación
+- ✅ **Deploy**: Despliega automáticamente
+- ✅ **Security**: Auditoría de seguridad
+- ✅ **Performance**: Lighthouse audit
 
-## 🤝 Contribuciones
+## 🎨 Personalización
 
-Las contribuciones son bienvenidas! Por favor:
+### Colores y Temas
+Edita `tailwind.config.js` para personalizar:
+- Paleta de colores
+- Tipografías
+- Espaciados
+- Breakpoints
+
+### Componentes
+Los componentes están diseñados para ser fácilmente personalizables:
+- Props configurables
+- Clases CSS modulares
+- Temas dinámicos
+
+## 🔒 Seguridad
+
+- **Dependencias**: Auditoría automática con `pnpm audit`
+- **TypeScript**: Validación de tipos en tiempo de compilación
+- **ESLint**: Reglas de seguridad configuradas
+- **Pre-commit hooks**: Validación antes de cada commit
+
+## 📈 Performance
+
+- **Lazy Loading**: Componentes cargados bajo demanda
+- **Code Splitting**: División automática del bundle
+- **Optimización de imágenes**: WebP y lazy loading
+- **PWA Ready**: Configuración para Progressive Web App
+
+## 🌐 SEO
+
+- **Meta tags**: Open Graph y Twitter Cards
+- **Structured Data**: Schema.org markup
+- **Sitemap**: Generación automática
+- **Robots.txt**: Configuración para crawlers
+
+## 🤝 Contribuir
 
 1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+3. Commit tus cambios (`git commit -m 'feat: add amazing feature'`)
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
+
+### Convenciones de Commit
+Usamos [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` Nueva funcionalidad
+- `fix:` Corrección de bugs
+- `docs:` Documentación
+- `style:` Cambios de estilo
+- `refactor:` Refactorización
+- `test:` Tests
+- `chore:` Tareas de mantenimiento
 
 ## 📄 Licencia
 
@@ -214,19 +212,19 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 
 ## 🙏 Agradecimientos
 
-- [Framer Motion](https://www.framer.com/motion/) por las increíbles animaciones
-- [Tailwind CSS](https://tailwindcss.com/) por el sistema de diseño
-- [Vite](https://vitejs.dev/) por la herramienta de build ultra rápida
-- [React](https://reactjs.org/) por el framework increíble
+- [React](https://reactjs.org/) - Biblioteca de UI
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
+- [Framer Motion](https://www.framer.com/motion/) - Animaciones
+- [Vite](https://vitejs.dev/) - Build tool
+- [Vitest](https://vitest.dev/) - Testing framework
 
 ## 📞 Contacto
 
-¿Tienes preguntas o sugerencias? ¡Me encantaría escuchar de ti!
-
 - **Email**: tu@email.com
-- **LinkedIn**: [linkedin.com/in/tu-perfil](https://linkedin.com/in/tu-perfil)
-- **GitHub**: [github.com/tu-usuario](https://github.com/tu-usuario)
+- **LinkedIn**: [Tu Perfil](https://linkedin.com/in/tuusuario)
+- **GitHub**: [@tuusuario](https://github.com/tuusuario)
+- **Portfolio**: [tuportafolio.com](https://tuportafolio.com)
 
 ---
 
-⭐ **Si te gusta este proyecto, ¡dale una estrella en GitHub!**
+⭐ **Si te gusta este proyecto, dale una estrella en GitHub!**
