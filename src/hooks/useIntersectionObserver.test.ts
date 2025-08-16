@@ -19,7 +19,7 @@ import { useIntersectionObserver } from './useIntersectionObserver';
 describe('useIntersectionObserver', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    mockIntersectionObserver.mockImplementation((callback) => ({
+    mockIntersectionObserver.mockImplementation(() => ({
       observe: mockObserve,
       unobserve: mockUnobserve,
       disconnect: mockDisconnect,

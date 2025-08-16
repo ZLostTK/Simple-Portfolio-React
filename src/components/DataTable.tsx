@@ -110,9 +110,13 @@ export function DataTable<TData, TValue>({
                       onClick={header.column.getToggleSortingHandler()}
                     >
                       <div className="flex items-center space-x-1">
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
+                        {header.column.columnDef.header ? (
+                          flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )
+                        ) : (
+                          <span>Header</span>
                         )}
                         {header.column.getCanSort() && (
                           <span className="text-primary-400">
@@ -143,9 +147,13 @@ export function DataTable<TData, TValue>({
                         key={cell.id}
                         className="px-6 py-4 whitespace-nowrap text-sm text-dark-200"
                       >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
+                        {cell.column.columnDef.cell ? (
+                          flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )
+                        ) : (
+                          <span>{String(cell.getValue())}</span>
                         )}
                       </td>
                     ))}

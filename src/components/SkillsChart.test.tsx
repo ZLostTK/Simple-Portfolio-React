@@ -4,7 +4,7 @@ import SkillsChart from './SkillsChart';
 
 // Mock Chart.js components
 vi.mock('react-chartjs-2', () => ({
-  Bar: ({ data }: { data: any }) => (
+  Bar: ({ data }: { data: { labels: string[]; datasets: Array<{ data: number[] }> } }) => (
     <div data-testid="bar-chart">
       {data.labels.map((label: string, index: number) => (
         <div key={label}>
@@ -13,7 +13,7 @@ vi.mock('react-chartjs-2', () => ({
       ))}
     </div>
   ),
-  Doughnut: ({ data }: { data: any }) => (
+  Doughnut: ({ data }: { data: { labels: string[]; datasets: Array<{ data: number[] }> } }) => (
     <div data-testid="doughnut-chart">
       {data.labels.map((label: string, index: number) => (
         <div key={label}>
@@ -22,7 +22,7 @@ vi.mock('react-chartjs-2', () => ({
       ))}
     </div>
   ),
-  Radar: ({ data }: { data: any }) => (
+  Radar: ({ data }: { data: { labels: string[]; datasets: Array<{ data: number[] }> } }) => (
     <div data-testid="radar-chart">
       {data.labels.map((label: string, index: number) => (
         <div key={label}>
