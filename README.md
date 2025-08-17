@@ -129,7 +129,23 @@ El proyecto apunta a una cobertura mínima del **85%** para mantener la calidad 
 
 ## 🚀 Deployment
 
-### Vercel (Recomendado)
+### GitHub Pages (Recomendado)
+El proyecto está configurado para deploy automático en GitHub Pages:
+
+1. **Configuración automática**: El workflow de GitHub Actions se ejecuta en cada push a main
+2. **Build optimizado**: Usa `pnpm run build:gh-pages` para producción
+3. **Deploy automático**: Se despliega en `https://[usuario].github.io/Portafolio-Simple/`
+
+#### Deploy manual:
+```bash
+# Construir para GitHub Pages
+pnpm run build:gh-pages
+
+# Deploy manual (si no usas GitHub Actions)
+pnpm run deploy
+```
+
+### Vercel
 1. Conectar tu repositorio a Vercel
 2. Configurar variables de entorno
 3. Deploy automático en cada push a main
@@ -147,9 +163,16 @@ El proyecto incluye un pipeline completo de CI/CD que:
 - ✅ **Testing**: Ejecuta tests automáticamente
 - ✅ **Type Checking**: Valida tipos TypeScript
 - ✅ **Build**: Construye la aplicación
-- ✅ **Deploy**: Despliega automáticamente
+- ✅ **Deploy**: Despliega automáticamente en GitHub Pages
 - ✅ **Security**: Auditoría de seguridad
 - ✅ **Performance**: Lighthouse audit
+
+### GitHub Pages Workflow
+El workflow `.github/workflows/deploy.yml` se ejecuta automáticamente:
+- **Trigger**: Push a main/master o manual
+- **Build**: Compila la aplicación con configuración de producción
+- **Deploy**: Sube a GitHub Pages usando la nueva API
+- **URL**: Disponible en `https://[usuario].github.io/Portafolio-Simple/`
 
 ## 🎨 Personalización
 
