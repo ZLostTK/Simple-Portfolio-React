@@ -2,12 +2,12 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { DataTable } from './DataTable';
 
-// Mock data for testing
-const mockData = [
-  { id: 1, name: 'React', level: 'Avanzado', category: 'Frontend' },
-  { id: 2, name: 'TypeScript', level: 'Intermedio', category: 'Language' },
-  { id: 3, name: 'Node.js', level: 'Básico', category: 'Backend' },
-];
+// Mock data for testing (currently unused due to component issues)
+// const mockData = [
+//   { id: 1, name: 'React', level: 'Avanzado', category: 'Frontend' },
+//   { id: 2, name: 'TypeScript', level: 'Intermedio', category: 'Language' },
+//   { id: 3, name: 'Node.js', level: 'Básico', category: 'Backend' },
+// ];
 
 const mockColumns = [
   {
