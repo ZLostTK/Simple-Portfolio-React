@@ -2,9 +2,9 @@ name: CI - Lint & Test
 
 on:
   push:
-    branches: [main, master]
+    branches: [master]
   pull_request:
-    branches: [main, master]
+    branches: [master]
 
 jobs:
   lint-and-test:
@@ -48,7 +48,7 @@ jobs:
       - name: Build test (verification only)
         run: |
           echo "Testing build process..."
-          pnpm run build:gh-pages
+          pnpm run build
           echo "Build test completed successfully"
           echo "Contents of dist folder:"
           ls -la dist/
