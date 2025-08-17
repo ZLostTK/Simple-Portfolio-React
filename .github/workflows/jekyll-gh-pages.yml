@@ -1,0 +1,48 @@
+name: Build Only
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run ESLint
+        run: pnpm exec eslint . --ext .js,.ts,.tsx
+
+      - name: Run Prettier check
+        run: pnpm exec prettier --check "src/**/*.{ts,tsx}"
+
+      - name: Run TypeScript check
+        run: pnpm exec tsc --noEmit
+
+      - name: Build application
+        run: pnpm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
