@@ -8,7 +8,6 @@ node_modules/
 # ===================================
 # ARCHIVOS DE CONSTRUCCIÓN
 # ===================================
-dist/
 build/
 *.local
 
