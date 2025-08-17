@@ -1,37 +1,83 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
 // Mock de Framer Motion para testing
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: React.ComponentProps<'div'>) => (
-      <div {...props}>{children}</div>
-    ),
-    button: ({ children, ...props }: React.ComponentProps<'button'>) => (
+    div: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'div'>) => <div {...props}>{children}</div>,
+    button: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'button'>) => (
       <button {...props}>{children}</button>
     ),
-    section: ({ children, ...props }: React.ComponentProps<'section'>) => (
+    section: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'section'>) => (
       <section {...props}>{children}</section>
     ),
-    h1: ({ children, ...props }: React.ComponentProps<'h1'>) => (
-      <h1 {...props}>{children}</h1>
-    ),
-    h2: ({ children, ...props }: React.ComponentProps<'h2'>) => (
-      <h2 {...props}>{children}</h2>
-    ),
-    h3: ({ children, ...props }: React.ComponentProps<'h3'>) => (
-      <h3 {...props}>{children}</h3>
-    ),
-    p: ({ children, ...props }: React.ComponentProps<'p'>) => (
-      <p {...props}>{children}</p>
-    ),
-    span: ({ children, ...props }: React.ComponentProps<'span'>) => (
-      <span {...props}>{children}</span>
-    ),
-    a: ({ children, ...props }: React.ComponentProps<'a'>) => (
-      <a {...props}>{children}</a>
-    ),
-    img: ({ ...props }: React.ComponentProps<'img'>) => <img {...props} />,
+    h1: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'h1'>) => <h1 {...props}>{children}</h1>,
+    h2: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'h2'>) => <h2 {...props}>{children}</h2>,
+    h3: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'h3'>) => <h3 {...props}>{children}</h3>,
+    p: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'p'>) => <p {...props}>{children}</p>,
+    span: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'span'>) => <span {...props}>{children}</span>,
+    a: ({
+      children,
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'a'>) => <a {...props}>{children}</a>,
+    img: ({
+      whileInView: _whileInView,
+      initial: _initial,
+      animate: _animate,
+      ...props
+    }: React.ComponentProps<'img'>) => <img {...props} />,
   },
   AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
 }));

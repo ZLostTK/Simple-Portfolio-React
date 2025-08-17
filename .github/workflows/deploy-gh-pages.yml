@@ -35,10 +35,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build for GitHub Pages
+      - name: Build for production
         run: |
-          echo "Building for GitHub Pages..."
-          NODE_ENV=production pnpm run build:gh-pages
+          echo "Building for production..."
+          NODE_ENV=production pnpm run build
           
           echo "Build completed. Checking dist folder structure:"
           ls -la dist/

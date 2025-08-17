@@ -31,5 +31,19 @@ export default tseslint.config([
         ...globals.es2020
       }
     }
+  },
+  {
+    files: ['**/*.js', 'scripts/**/*'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: {
+        ...globals.node,
+        ...globals.es2020
+      }
+    },
+    rules: {
+      'no-console': 'off',
+      'no-process-exit': 'off'
+    }
   }
 ])
