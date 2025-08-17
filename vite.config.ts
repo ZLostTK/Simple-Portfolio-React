@@ -5,7 +5,7 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/Portafolio-Simple/' : '/',
+  base: process.env.NODE_ENV === 'production' ? './' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -30,9 +30,11 @@ export default defineConfig({
         assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
-    // Optimizaciones para GitHub Pages
+    // Optimizaciones para producción
     minify: 'esbuild', // Usar esbuild en lugar de terser
     target: 'es2015',
+    // Asegurar que los assets se sirvan correctamente
+    assetsInlineLimit: 4096,
   },
   preview: {
     port: 4173,

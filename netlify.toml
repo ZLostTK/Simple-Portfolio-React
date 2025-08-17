@@ -5,6 +5,13 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Primero servir assets estáticos
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+# Luego el fallback para SPA
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -14,3 +21,9 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
