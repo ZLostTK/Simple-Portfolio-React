@@ -20,19 +20,19 @@ describe('useHotkeys', () => {
 
   it('should provide registerHotkey method', () => {
     const { result } = renderHook(() => useHotkeys([]));
-    
+
     expect(typeof result.current.registerHotkey).toBe('function');
   });
 
   it('should provide unregisterHotkey method', () => {
     const { result } = renderHook(() => useHotkeys([]));
-    
+
     expect(typeof result.current.unregisterHotkey).toBe('function');
   });
 
   it('should handle empty hotkey configs', () => {
     const { result } = renderHook(() => useHotkeys([]));
-    
+
     expect(result.current).toBeDefined();
     expect(result.current.registerHotkey).toBeDefined();
     expect(result.current.unregisterHotkey).toBeDefined();
@@ -40,7 +40,7 @@ describe('useHotkeys', () => {
 
   it('should have correct return structure', () => {
     const { result } = renderHook(() => useHotkeys([]));
-    
+
     expect(result.current).toHaveProperty('registerHotkey');
     expect(result.current).toHaveProperty('unregisterHotkey');
   });

@@ -26,12 +26,7 @@ const mockColumns = [
 
 describe('DataTable', () => {
   it('handles empty data gracefully', () => {
-    render(
-      <DataTable
-        columns={mockColumns}
-        data={[]}
-      />
-    );
+    render(<DataTable columns={mockColumns} data={[]} />);
 
     expect(screen.getByText('0 de 0 resultados')).toBeInTheDocument();
   });

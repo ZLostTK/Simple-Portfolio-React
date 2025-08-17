@@ -4,7 +4,11 @@ import SkillsChart from './SkillsChart';
 
 // Mock Chart.js components
 vi.mock('react-chartjs-2', () => ({
-  Bar: ({ data }: { data: { labels: string[]; datasets: Array<{ data: number[] }> } }) => (
+  Bar: ({
+    data,
+  }: {
+    data: { labels: string[]; datasets: Array<{ data: number[] }> };
+  }) => (
     <div data-testid="bar-chart">
       {data.labels.map((label: string, index: number) => (
         <div key={label}>
@@ -13,7 +17,11 @@ vi.mock('react-chartjs-2', () => ({
       ))}
     </div>
   ),
-  Doughnut: ({ data }: { data: { labels: string[]; datasets: Array<{ data: number[] }> } }) => (
+  Doughnut: ({
+    data,
+  }: {
+    data: { labels: string[]; datasets: Array<{ data: number[] }> };
+  }) => (
     <div data-testid="doughnut-chart">
       {data.labels.map((label: string, index: number) => (
         <div key={label}>
@@ -22,7 +30,11 @@ vi.mock('react-chartjs-2', () => ({
       ))}
     </div>
   ),
-  Radar: ({ data }: { data: { labels: string[]; datasets: Array<{ data: number[] }> } }) => (
+  Radar: ({
+    data,
+  }: {
+    data: { labels: string[]; datasets: Array<{ data: number[] }> };
+  }) => (
     <div data-testid="radar-chart">
       {data.labels.map((label: string, index: number) => (
         <div key={label}>
@@ -52,14 +64,18 @@ describe('SkillsChart', () => {
     );
 
     expect(screen.getByText('Mis Habilidades')).toBeInTheDocument();
-    expect(screen.getByText('Nivel de dominio en diferentes tecnologías')).toBeInTheDocument();
+    expect(
+      screen.getByText('Nivel de dominio en diferentes tecnologías')
+    ).toBeInTheDocument();
   });
 
   it('renders without title and description', () => {
     render(<SkillsChart skills={mockSkills} />);
 
     expect(screen.queryByText('Mis Habilidades')).not.toBeInTheDocument();
-    expect(screen.queryByText('Nivel de dominio en diferentes tecnologías')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Nivel de dominio en diferentes tecnologías')
+    ).not.toBeInTheDocument();
   });
 
   it('renders bar chart by default', () => {
@@ -83,7 +99,7 @@ describe('SkillsChart', () => {
   it('renders skills legend', () => {
     render(<SkillsChart skills={mockSkills} />);
 
-    mockSkills.forEach((skill) => {
+    mockSkills.forEach(skill => {
       expect(screen.getByText(skill.name)).toBeInTheDocument();
       expect(screen.getByText(`${skill.level}%`)).toBeInTheDocument();
     });
