@@ -1,36 +1,40 @@
-// Variables de entorno del sitio
-export const env = {
-  // Modo de desarrollo
-  isDev: import.meta.env.DEV,
+// Configuración de entorno para diferentes plataformas de despliegue
+export const config = {
+  // URL base para assets y rutas
+  baseUrl: (() => {
+    if (typeof window !== 'undefined') {
+      // En el navegador, usar la ruta actual
+      return window.location.pathname.includes('/Portafolio-Simple') 
+        ? '/Portafolio-Simple' 
+        : '';
+    }
+    // En el servidor, usar la variable de entorno
+    return process.env.NODE_ENV === 'production' ? '/Portafolio-Simple' : '';
+  })(),
+  
+  // Configuración de la API
+  apiUrl: process.env.VITE_API_URL || 'http://localhost:3000/api',
+  
+  // Configuración de la aplicación
+  appName: 'Portafolio Simple',
+  appVersion: process.env.npm_package_version || '1.0.0',
+  
+  // Configuración de GitHub Pages
+  isGitHubPages: process.env.NODE_ENV === 'production' && 
+                 (typeof window !== 'undefined' && window.location.hostname.includes('github.io')),
+  
+  // Configuración de desarrollo
+  isDevelopment: process.env.NODE_ENV === 'development',
+  isProduction: process.env.NODE_ENV === 'production',
+}
 
-  // Modo de producción
-  isProd: import.meta.env.PROD,
+// Función helper para construir URLs absolutas
+export const buildUrl = (path: string): string => {
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${config.baseUrl}/${cleanPath}`.replace(/\/+/g, '/');
+}
 
-  // Base URL para assets
-  baseUrl: import.meta.env.BASE_URL || '/',
-
-  // URL del sitio
-  siteUrl: import.meta.env.VITE_SITE_URL || 'http://localhost:3000',
-
-  // API URL
-  apiUrl: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
-
-  // Analytics
-  analyticsId: import.meta.env.VITE_ANALYTICS_ID || '',
-
-  // Contact form
-  contactEmail: import.meta.env.VITE_CONTACT_EMAIL || 'anxerdev@gmail.com',
-
-  // GitHub
-  githubUrl: import.meta.env.VITE_GITHUB_URL || 'https://github.com/ZLostTK',
-
-  // Portfolio
-  portfolioUrl: import.meta.env.VITE_PORTFOLIO_URL || 'https://anxer.is-a.dev/',
-};
-
-// Configuración específica para GitHub Pages
-export const githubPagesConfig = {
-  basePath: '/Portafolio-Simple',
-  repository: 'ZLostTK/Portafolio-Simple',
-  branch: 'main',
-};
+// Función helper para assets
+export const assetUrl = (assetPath: string): string => {
+  return buildUrl(assetPath);
+}

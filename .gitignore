@@ -83,7 +83,7 @@ temp/
 *.temp
 
 # ===================================
-# DEPLOYMENT
+# DEPLOYMENT (solo archivos externos, NO workflows de GitHub)
 # ===================================
 .vercel/
 .netlify/
@@ -157,11 +157,11 @@ jest.config.js
 jest.config.ts
 
 # ===================================
-# ARCHIVOS DE CONFIGURACIÓN DE DEPLOYMENT
+# ARCHIVOS DE CONFIGURACIÓN DE DEPLOYMENT EXTERNO
 # ===================================
 vercel.json
 netlify.toml
-.github/
+# NOTA: .github/ NO debe estar aquí para permitir workflows de GitHub Actions
 
 # ===================================
 # ARCHIVOS DE DOCUMENTACIÓN

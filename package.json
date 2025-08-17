@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:gh-pages": "tsc && vite build --mode production",
+    "build:gh-pages": "NODE_ENV=production tsc && vite build --config vite.gh-pages.config.ts",
+    "build:vercel": "NODE_ENV=production tsc && vite build",
+    "build:netlify": "NODE_ENV=production tsc && vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "lint": "eslint . --max-warnings 0",

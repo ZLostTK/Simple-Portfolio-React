@@ -2,29 +2,25 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-// https://vitejs.dev/config/
+// Configuración específica para GitHub Pages
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/Portafolio-Simple/' : '/',
+  base: '/Portafolio-Simple/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-  server: {
-    port: 3000,
-    open: true,
-  },
   build: {
     outDir: 'dist',
-    sourcemap: false, // Deshabilitar sourcemaps para producción
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
           framer: ['framer-motion'],
         },
-        // Asegurar que los nombres de archivos sean consistentes
+        // Nombres de archivos consistentes para GitHub Pages
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]',
@@ -33,9 +29,12 @@ export default defineConfig({
     // Optimizaciones para GitHub Pages
     minify: 'esbuild', // Usar esbuild en lugar de terser
     target: 'es2015',
+    // Asegurar que los assets se copien correctamente
+    assetsInlineLimit: 0,
   },
-  preview: {
-    port: 4173,
-    open: true,
+  // Configuración específica para GitHub Pages
+  define: {
+    'process.env.NODE_ENV': '"production"',
+    'process.env.BASE_URL': '"/Portafolio-Simple/"',
   },
 })
