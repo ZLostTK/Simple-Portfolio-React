@@ -2,27 +2,28 @@
 export const siteConfig = {
   // Base path para GitHub Pages
   basePath: import.meta.env.PROD ? '/Portafolio-Simple' : '',
-  
+
   // URL del sitio
-  url: import.meta.env.PROD 
+  url: import.meta.env.PROD
     ? 'https://zlosttk.github.io/Portafolio-Simple'
     : 'http://localhost:3000',
-  
+
   // Título del sitio
   title: 'Portafolio Simple - Desarrollador Full Stack',
-  
+
   // Descripción del sitio
-  description: 'Un portafolio moderno y profesional construido con React, TypeScript y las mejores tecnologías web.',
-  
+  description:
+    'Un portafolio moderno y profesional construido con React, TypeScript y las mejores tecnologías web.',
+
   // Autor
   author: 'AnxerDev',
-  
+
   // Redes sociales
   social: {
     github: 'https://github.com/ZLostTK',
     email: 'anxerdev@gmail.com',
-    portfolio: 'https://anxer.is-a.dev/'
-  }
+    portfolio: 'https://anxer.is-a.dev/',
+  },
 };
 
 // Función para obtener la URL completa
