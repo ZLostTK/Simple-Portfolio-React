@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --vscode-bg: #1a1a2e;
+  --vscode-sidebar: #16213e;
+  --vscode-sidebar-hover: #1f2d4a;
+  --vscode-titlebar: #0f0f23;
+  --vscode-tab-active: #1a1a2e;
+  --vscode-tab-inactive: #141428;
+  --vscode-tab-border: #252545;
+  --vscode-border: #252545;
+  --vscode-text: #d4d4d4;
+  --vscode-text-muted: #858585;
+  --vscode-text-bright: #ffffff;
+  --vscode-comment: #6a9955;
+  --vscode-keyword: #569cd6;
+  --vscode-string: #ce9178;
+  --vscode-number: #b5cea8;
+  --vscode-type: #4ec9b0;
+  --vscode-function: #dcdcaa;
+  --vscode-accent: #007acc;
+  --vscode-pink: #f92aad;
+  --vscode-cyan: #66d9e8;
+  --vscode-green: #a6e22e;
+  --vscode-orange: #fd971f;
+  --vscode-yellow: #e6db74;
+  --vscode-red: #f44747;
+  --vscode-status: #007acc;
+  --vscode-terminal: #0d0d1a;
+  --vscode-selection: #264f78;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: var(--vscode-bg);
+    color: var(--vscode-text);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+  .mono {
+    font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  }
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+/* VS Code syntax tokens */
+.token-comment { color: var(--vscode-comment); font-style: italic; }
+.token-keyword { color: var(--vscode-keyword); }
+.token-string { color: var(--vscode-string); }
+.token-number { color: var(--vscode-number); }
+.token-type { color: var(--vscode-type); }
+.token-function { color: var(--vscode-function); }
+.token-operator { color: #d4d4d4; }
+.token-punctuation { color: #d4d4d4; }
+.token-property { color: #9cdcfe; }
+.token-pink { color: var(--vscode-pink); }
+.token-cyan { color: var(--vscode-cyan); }
+.token-green { color: var(--vscode-green); }
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.slide-in-right {
+  animation: slideInRight 0.25s ease-out;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: var(--target-width); }
+}
+.progress-animate {
+  animation: progressFill 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+  width: 0%;
+}
+
+/* Terminal prompt */
+.terminal-prompt::before {
+  content: '$ ';
+  color: var(--vscode-green);
+}
