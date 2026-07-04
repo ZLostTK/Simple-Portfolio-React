@@ -88,6 +88,7 @@ temp/
 .vercel/
 .netlify/
 .next/
+out/
 .nuxt/
 .output/
 
