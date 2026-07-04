@@ -2,9 +2,9 @@
 
 # VS Code Portfolio — Alexander Martínez
 
-![Next.js](https://img.shields.io/badge/Next.js-13.5-000000?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-06B6D4?style=for-the-badge&logo=tailwind-css)
+![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=for-the-badge&logo=tailwind-css)
 ![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-latest-000000?style=for-the-badge)
 ![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
@@ -35,31 +35,35 @@
 
 | Capa | Tecnología |
 |------|-----------|
-| Framework | Next.js 13.5 (App Router) |
-| Lenguaje | TypeScript 5.2 |
-| Estilos | Tailwind CSS 3.3 + `tailwindcss-animate` |
+| Framework | Next.js 16 (App Router) |
+| Lenguaje | TypeScript 6 |
+| Estilos | Tailwind CSS 3 + `tailwindcss-animate` |
 | Componentes | shadcn/ui (Radix UI) |
 | Iconos | lucide-react |
-| Paquetería | pnpm |
+| Linter | ESLint 9 (flat config) |
+| Paquetería | pnpm 9 |
 
 ## 📁 Estructura
 
 ```
 ├── app/
-│   ├── globals.css        # Estilos globales y variables CSS
-│   ├── layout.tsx         # Root layout con metadata
-│   └── page.tsx           # Entry point → EditorShell
+│   ├── globals.css          # Estilos globales y variables CSS
+│   ├── layout.tsx           # Root layout con metadata
+│   └── page.tsx             # Entry point → EditorShell
 ├── src/
 │   ├── features/
-│   │   └── editor/        # EditorShell y componentes del VS Code simulado
-│   ├── lib/               # Utilidades y helpers
-│   └── shared/            # Componentes compartidos
+│   │   ├── copilot/         # Panel Copilot simulado
+│   │   ├── editor/          # EditorShell y componentes del VS Code
+│   │   ├── portfolio/       # Componentes de cada sección (Home, About, etc.)
+│   │   └── terminal/        # Terminal interactiva
+│   ├── lib/                 # Utilidades y helpers
+│   └── shared/              # Componentes compartidos (tipos, LineNumbers)
 ├── components/
-│   └── ui/                # Componentes shadcn/ui
-├── hooks/                 # Custom hooks
-├── lib/                   # Utilidades adicionales
-├── public/                # Assets estáticos
-└── .github/workflows/     # CI + Deploy a GitHub Pages
+│   └── ui/                  # Componentes shadcn/ui (~47 componentes)
+├── hooks/                   # Custom hooks
+├── lib/                     # Utilidades adicionales
+├── public/                  # Assets estáticos
+└── .github/workflows/       # CI + Deploy a GitHub Pages
 ```
 
 ## 🛠️ Empezar
@@ -83,21 +87,41 @@ pnpm lint
 
 # Build producción
 pnpm build
+
+# Build para GitHub Pages
+GH_PAGES=true pnpm build
 ```
 
 ## 🌐 Deploy
 
 ### GitHub Pages (automático)
 
-El workflow `deploy-gh-pages.yml` construye y despliega automáticamente a GitHub Pages en cada push a `master`. Solo necesitas:
+El workflow `deploy-gh-pages.yml` construye con `GH_PAGES=true` y despliega a GitHub Pages en cada push a `master`. Solo necesitas:
 
 1. Ir a **Settings > Pages** en tu repo
 2. En "Source", seleccionar **GitHub Actions**
 3. Listo — cada push despliega automáticamente
 
+> Si usas un dominio personalizado, el `basePath` se ajusta automáticamente. Sin `GH_PAGES=true`, el build genera rutas sin prefijo.
+
+### GitHub Pages (manual)
+
+```bash
+GH_PAGES=true pnpm build
+# El output estático se genera en ./out/
+# Puedes subirlo manualmente a la branch gh-pages o usar cualquier CDN
+```
+
 ### Netlify
 
 El `netlify.toml` ya está configurado. Conecta tu repo en Netlify y despliega.
+
+## 🔄 CI/CD
+
+| Workflow | Trigger | Qué hace |
+|----------|---------|----------|
+| **CI** | Push/PR a `master` | `pnpm install` → `pnpm typecheck` → `pnpm lint` → `pnpm build` |
+| **Deploy to GitHub Pages** | Push a `master` + manual | Build con `GH_PAGES=true` y despliega a GitHub Pages |
 
 ## 📄 Licencia
 
