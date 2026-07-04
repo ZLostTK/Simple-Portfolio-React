@@ -1,242 +1,110 @@
-# 🚀 Portafolio Simple
+<div align="center">
 
-Un portafolio personal moderno y responsive construido con React, TypeScript y Vite.
+# VS Code Portfolio — Alexander Martínez
 
-## ✨ Características
+![Next.js](https://img.shields.io/badge/Next.js-13.5-000000?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-06B6D4?style=for-the-badge&logo=tailwind-css)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-latest-000000?style=for-the-badge)
+![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-- 🎨 **Diseño Moderno**: Interfaz limpia y profesional
-- 📱 **Responsive**: Optimizado para todos los dispositivos
-- ⚡ **Rendimiento**: Construido con Vite para máxima velocidad
-- 🎭 **Animaciones**: Transiciones suaves con Framer Motion
-- 🧪 **Testing**: Cobertura completa de tests con Vitest
-- 🚀 **CI/CD**: Despliegue automático con GitHub Actions
+**Un portafolio interactivo con apariencia de VS Code** — construido con Next.js, TypeScript y Tailwind CSS.
 
-## 🛠️ Tecnologías
+[Demo](https://anxer.is-a.dev) · [Reportar Bug](https://github.com/ZLostTK/Simple-Portfolio-React/issues) · [Solicitar Feature](https://github.com/ZLostTK/Simple-Portfolio-React/issues)
 
-- **Frontend**: React 18 + TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Animaciones**: Framer Motion
-- **Testing**: Vitest + Testing Library
-- **Linting**: ESLint + Prettier
-- **Package Manager**: pnpm
+![Screenshot](public/og-image.png)
 
-## 🚀 Instalación
-
-### Prerrequisitos
-
-- Node.js 20.x o superior
-- pnpm 8.x o superior
-
-### Pasos
-
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/ZLostTK/Portafolio-Simple.git
-   cd Portafolio-Simple
-   ```
-
-2. **Instalar dependencias**
-   ```bash
-   pnpm install
-   ```
-
-3. **Ejecutar en desarrollo**
-   ```bash
-   pnpm dev
-   ```
-
-4. **Construir para producción**
-   ```bash
-   pnpm build
-   ```
-
-## 📦 Scripts Disponibles
-
-| Comando | Descripción |
-|---------|-------------|
-| `pnpm dev` | Inicia el servidor de desarrollo |
-| `pnpm build` | Construye la aplicación para producción |
-| `pnpm build:gh-pages` | Construye específicamente para GitHub Pages |
-| `pnpm preview` | Previsualiza la build de producción |
-| `pnpm test` | Ejecuta los tests |
-| `pnpm test:coverage` | Ejecuta tests con reporte de cobertura |
-| `pnpm lint` | Ejecuta ESLint |
-| `pnpm format` | Formatea el código con Prettier |
-
-## 🌐 Despliegue
-
-### GitHub Pages
-
-El proyecto está configurado para desplegarse automáticamente en GitHub Pages:
-
-1. **Configurar GitHub Pages**:
-   - Ve a Settings > Pages en tu repositorio
-   - Source: Deploy from a branch
-   - Branch: `gh-pages` o `main`
-   - Folder: `/ (root)`
-
-2. **Despliegue automático**:
-   - Cada push a `main` activará el workflow de GitHub Actions
-   - El sitio se construirá y desplegará automáticamente
-
-3. **URL del sitio**:
-   - `https://zlosttk.github.io/Portafolio-Simple/`
-
-### Despliegue Manual
-
-Si prefieres desplegar manualmente:
-
-```bash
-# Construir para GitHub Pages
-pnpm run build:gh-pages
-
-# Desplegar con gh-pages
-pnpm run deploy
-```
-
-### Vercel/Netlify
-
-El proyecto también incluye configuraciones para:
-
-- **Vercel**: `pnpm run build:vercel`
-- **Netlify**: `pnpm run build:netlify`
-
-## 🔧 Configuración
-
-### Variables de Entorno
-
-Copia `.env.example` a `.env.local` y configura:
-
-```bash
-# API
-VITE_API_URL=http://localhost:3000/api
-
-# Analytics
-VITE_ANALYTICS_ID=your-analytics-id
-
-# Contacto
-VITE_CONTACT_EMAIL=your-email@example.com
-
-# GitHub
-VITE_GITHUB_URL=https://github.com/yourusername
-
-# Portfolio
-VITE_PORTFOLIO_URL=https://your-portfolio.com
-```
-
-### Configuración de Vite
-
-- **Desarrollo**: Base path `/`
-- **GitHub Pages**: Base path `/Portafolio-Simple/`
-- **Producción**: Configuración optimizada para cada plataforma
-
-## 🧪 Testing
-
-### Ejecutar Tests
-
-```bash
-# Todos los tests
-pnpm test
-
-# Con cobertura
-pnpm test:coverage
-
-# UI de tests
-pnpm test:ui
-
-# Tests en modo watch
-pnpm test --watch
-```
-
-### Cobertura de Tests
-
-El proyecto mantiene una cobertura mínima del 85% en:
-- Componentes React
-- Hooks personalizados
-- Utilidades y helpers
-- Store de estado
-
-## 📁 Estructura del Proyecto
-
-```
-📦 Portafolio-Simple
- ┣ 📂 src/
- ┃ ┣ 📂 components/     # Componentes React
- ┃ ┣ 📂 hooks/          # Hooks personalizados
- ┃ ┣ 📂 store/          # Estado global (Zustand)
- ┃ ┣ 📂 config/         # Configuración
- ┃ ┗ 📂 assets/         # Recursos estáticos
- ┣ 📂 public/           # Archivos públicos
- ┣ 📂 tests/            # Configuración de tests
- ┣ 📂 .github/          # Workflows de GitHub Actions
- ┗ 📂 docs/             # Documentación
-```
-
-## 🚨 Solución de Problemas
-
-### Errores 404 en GitHub Pages
-
-Si experimentas errores 404 para archivos CSS/JS:
-
-1. **Verificar configuración de Vite**:
-   - Asegúrate de que `base: '/Portafolio-Simple/'` esté configurado
-   - Usa `pnpm run build:gh-pages` para builds específicos
-
-2. **Verificar archivos de build**:
-   - Los assets deben estar en `dist/assets/`
-   - El `index.html` debe referenciar rutas correctas
-
-3. **Limpiar caché del navegador**:
-   - Usa modo incógnito para testing
-   - Limpia caché y cookies
-
-### Problemas de Build
-
-1. **Verificar dependencias**:
-   ```bash
-   pnpm install --frozen-lockfile
-   ```
-
-2. **Limpiar caché**:
-   ```bash
-   pnpm store prune
-   rm -rf node_modules pnpm-lock.yaml
-   pnpm install
-   ```
-
-3. **Verificar Node.js**:
-   - Usa Node.js 20.x
-   - Verifica versión de pnpm (8.x)
-
-## 🤝 Contribuir
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'feat: Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-### Convenciones de Commit
-
-- `feat:` Nueva funcionalidad
-- `fix:` Corrección de bugs
-- `docs:` Documentación
-- `style:` Formato de código
-- `refactor:` Refactorización
-- `test:` Tests
-- `chore:` Tareas de mantenimiento
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
-
-## 📞 Contacto
-
-- **Email**: anxerdev@gmail.com
-- **GitHub**: [@ZLostTK](https://github.com/ZLostTK)
-- **Portfolio**: [anxer.is-a.dev](https://anxer.is-a.dev/)
+</div>
 
 ---
 
-⭐ Si te gusta este proyecto, ¡dale una estrella!
+## ✨ Características
+
+- **Shell de VS Code funcional** — Barra de título, Activity Bar, File Explorer, tabs, breadcrumbs, Status Bar
+- **7 secciones tipo archivo** — Home, About, Projects, Skills, Experience, Contact, README
+- **Paleta de comandos** — `Ctrl+P` / `Cmd+P` para navegar entre archivos
+- **Terminal interactiva** — `Ctrl+ñ` / `Ctrl+\`` con comandos reales (`whoami`, `ls`, `cat`, `git log`, etc.)
+- **Panel Copilot** — `Ctrl+Shift+C` / `Cmd+Shift+C` — chat simulado con IA sobre el portafolio
+- **Efecto máquina de escribir** en el hero
+- **Barras de progreso animadas** en skills
+- **Modo oscuro** estilo VS Code "Anxer Dark"
+- **Diseño responsivo** y accesible
+- **Totalmente estático** — deployable a GitHub Pages, Netlify, o cualquier CDN
+
+## 🚀 Stack
+
+| Capa | Tecnología |
+|------|-----------|
+| Framework | Next.js 13.5 (App Router) |
+| Lenguaje | TypeScript 5.2 |
+| Estilos | Tailwind CSS 3.3 + `tailwindcss-animate` |
+| Componentes | shadcn/ui (Radix UI) |
+| Iconos | lucide-react |
+| Paquetería | pnpm |
+
+## 📁 Estructura
+
+```
+├── app/
+│   ├── globals.css        # Estilos globales y variables CSS
+│   ├── layout.tsx         # Root layout con metadata
+│   └── page.tsx           # Entry point → EditorShell
+├── src/
+│   ├── features/
+│   │   └── editor/        # EditorShell y componentes del VS Code simulado
+│   ├── lib/               # Utilidades y helpers
+│   └── shared/            # Componentes compartidos
+├── components/
+│   └── ui/                # Componentes shadcn/ui
+├── hooks/                 # Custom hooks
+├── lib/                   # Utilidades adicionales
+├── public/                # Assets estáticos
+└── .github/workflows/     # CI + Deploy a GitHub Pages
+```
+
+## 🛠️ Empezar
+
+```bash
+# Clonar
+git clone https://github.com/ZLostTK/Simple-Portfolio-React.git
+cd Simple-Portfolio-React
+
+# Instalar dependencias
+pnpm install
+
+# Desarrollo
+pnpm dev          # http://localhost:3000
+
+# TypeScript check
+pnpm typecheck
+
+# Lint
+pnpm lint
+
+# Build producción
+pnpm build
+```
+
+## 🌐 Deploy
+
+### GitHub Pages (automático)
+
+El workflow `deploy-gh-pages.yml` construye y despliega automáticamente a GitHub Pages en cada push a `master`. Solo necesitas:
+
+1. Ir a **Settings > Pages** en tu repo
+2. En "Source", seleccionar **GitHub Actions**
+3. Listo — cada push despliega automáticamente
+
+### Netlify
+
+El `netlify.toml` ya está configurado. Conecta tu repo en Netlify y despliega.
+
+## 📄 Licencia
+
+MIT © [Alexander Martínez González](https://github.com/ZLostTK)
+
+---
+
+<div align="center">
+  Hecho con ☕, 🎧 y mucho cariño por un dev mexicano 🇲🇽
+</div>
